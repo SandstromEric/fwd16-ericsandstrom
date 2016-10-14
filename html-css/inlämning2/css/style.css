@@ -1,0 +1,216 @@
+body{
+  margin: 0;
+  background: url('../images/clouds-background-light.jpg');
+  font-family: sans-serif;
+}
+h2{
+  color: orange;
+}
+h3{
+  color: orange;
+}
+header{
+  display: flex;
+  height: 150px;
+  padding: 1px;
+}
+header > nav{
+  flex: 1 1 100%;
+  text-align: center;
+}
+.logo img{
+  width: 200px;
+}
+nav input{
+  display: none;
+}
+nav h2{
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 3px;
+  cursor: pointer;
+}
+nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav > ul{
+  transform: scaleY(0);
+  transform-origin: top right;;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+nav input#mobile-menu:checked ~ ul{
+  transform: scaleY(1);
+}
+nav ul li{
+  text-align: left;
+}
+nav ul li a{
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  background: orange;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  transition: all .3s ease;
+  /*border-radius: 10px;
+  box-shadow: 2px 2px 0px darkorange;*/
+}
+nav ul li:nth-child(odd) a{
+  background: darkorange;
+}
+nav ul li a:hover{
+  background: #333;
+  color: orange;
+}
+nav ul ul{
+  transform: scaleY(0);
+  display: none;
+}
+nav ul ul li{
+  font-size: 14px;
+}
+nav ul ul li a{
+  padding: 10px 20px;
+}
+nav ul li label{
+  cursor: pointer;
+  padding: 5px;
+}
+nav ul li label:hover{
+  color: #fff;
+}
+nav input#mobile-submenu:checked ~ ul ul{
+  transform: scaleY(1);
+  display: block;
+}
+
+/*MAIN*/
+.main-container{
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  font-family: serif;
+  flex-direction: column-reverse;
+}
+.main-container .sidebar{
+  flex: 1 1 100%;
+  margin: 5px 0 0 0;
+  height: 50px;
+  border: 1px solid #000;
+}
+.main-container .content{
+  border: 1px solid #000;
+  flex: 1 1 100%;
+  margin: 0;
+  padding: 0 10px;
+}
+footer{
+  height: 50px;
+  max-width: 960px;
+  margin: 5px auto;
+  border: 1px solid #000;
+}
+
+/*Text styling*/
+.blue{
+  color: blue;
+}
+.red-bold-underline{
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.red-linethrough{
+  color: red;
+  text-decoration: line-through;
+}
+
+/*Buttons*/
+.special-effects-btn{
+  background: red;
+  color: limegreen;
+  width: 60%;
+  text-align: center;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 10px 20px 10px 20px;
+  text-shadow: -2px -2px 2px #000;
+  font-size: 24px;
+}
+
+/*messages*/
+.warning{
+  background: url('../images/warning-512.png') no-repeat;
+  background-size: 15px;
+  background-position: 12px center;
+  background-color: lightyellow;
+  border-top: 3px solid yellow;
+  border-bottom: 3px solid yellow;
+  margin: 0 auto;
+  width: 80%;
+  padding: 0 40px 0 0;
+}
+.warning li{
+  list-style: none;
+}
+
+/*Desktop*/
+@media screen and (min-width: 860px){
+.logo{
+  align-self: center;
+}
+  nav{
+    display: flex;
+    justify-content: center;
+  }
+  nav h2{
+    display: none;
+  }
+  nav ul{
+    transform: scaleY(1);
+    position: relative;
+    align-self: center;
+  }
+  nav ul li{
+    display: inline-flex;
+    position: relative;
+  }
+  nav ul li a{
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 #888;
+  }
+  nav ul ul{
+    position: absolute;
+    top: 38px;
+  }
+  nav ul ul li a{
+    border-radius: 0;
+  }
+  nav input#mobile-submenu:checked ~ ul li.has-sub > a{
+    border-radius: 10px 10px 10px 0;
+  }
+  nav input#mobile-submenu:checked ~ ul ul{
+    transform: scaleY(1);
+  }
+  .main-container{
+    flex-direction: row;
+  }
+  .main-container .sidebar{
+    flex: 0 0 150px;
+    height: auto;
+    border: 1px solid #000;
+    margin: 0;
+  }
+  .main-container .content{
+    margin: 0 0 0 5px;
+  }
+}
