@@ -113,6 +113,7 @@ nav ul li a:hover{
    padding: 10px;
    box-sizing: border-box;
    margin: 10px 0;
+   border: 1px solid #fff;
 }
 .flex-item .info{
    display: flex;
@@ -130,6 +131,7 @@ nav ul li a:hover{
 }
 .flex-item section img{
    max-width: 100%;
+   width: 100%;
 }
 .flex-item .btn{
    display: flex;
