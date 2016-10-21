@@ -1,0 +1,162 @@
+html, body{
+   font-family: sans-serif;
+   margin: 0;
+}
+body{
+   background: url('../images/o-SCOTLAND-facebook1.jpg') no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+}
+header{
+   display: flex;
+   flex-direction: column;
+   background: rgba(0, 0, 0, 0.2);
+}
+
+nav{
+   display: flex;
+   flex: 1;
+}
+nav ul{
+   display: none;
+   flex-direction: column;
+   flex: 1;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+nav ul li{
+   display: flex;
+   flex: 1;
+}
+nav ul li a{
+   display: flex;
+   flex: 1;
+   justify-content: center;
+   color: #fff;
+   text-decoration: none;
+   padding: 10px;
+   box-sizing: border-box;
+   transition: all .3s ease;
+   font-size: 24px;
+}
+nav ul li a:hover{
+   background: rgba(0, 0, 0, 0.5);
+}
+
+.social{
+   display: flex;
+}
+.social a{
+   display: flex;
+   flex: 1 1 100%;
+   justify-content: center;
+   padding: 10px;
+   transition: all .3s ease;
+}
+.social a:hover{
+   background: rgba(0, 0, 0, 0.5);
+}
+.social i{
+   font-size: 32px;
+   color: #fff;
+}
+
+
+/*Pads*/
+@media screen and (min-width: 500px){
+   nav ul{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+   }
+   nav ul li{
+      flex: 1 1 50%;
+   }
+}
+
+/*Desktop*/
+@media screen and (min-width: 1000px){
+   header{
+      flex-direction: row;
+   }
+   nav{
+      flex: 1 1 80%;
+   }
+   nav ul{
+      display: flex;
+      flex-wrap: nowrap;
+   }
+   nav ul li{
+      flex: 1 1 100%;
+   }
+   .social a{
+      flex: 1 1 20%;
+   }
+   .social i{
+      font-size: 24px;
+   }
+}
+
+/*
+   CONTENT
+*/
+.flex-box{
+   display: flex;
+   flex-direction: column;
+   opacity: 0.5;
+}
+.flex-item{
+   display: flex;
+   background: seagreen;
+   color: #fff;
+   padding: 10px;
+   box-sizing: border-box;
+   margin: 10px 0;
+}
+.flex-item .info{
+   display: flex;
+   margin: 10px 0;
+}
+.flex-item .info .category{
+   flex: 1;
+}
+.flex-item .info .author{
+
+}
+.flex-item section{
+   display: flex;
+   flex-direction: column;
+}
+.flex-item section img{
+   max-width: 100%;
+}
+.flex-item .btn{
+   display: flex;
+   flex: 1;
+   justify-content: flex-end;
+   flex-direction: column;
+}
+.flex-item .btn button{
+   background: gold;
+   border: 0;
+   color: seagreen;
+   padding: 10px;
+   text-align: center;
+}
+
+@media screen and (min-width: 600px){
+   .flex-box{
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 80%;
+      margin: 0 auto;
+   }
+   .flex-item{
+      flex: 0 1 48%;
+   }
+   .flex-item:last-child{
+      flex: 0 1 98%;
+   }
+}
