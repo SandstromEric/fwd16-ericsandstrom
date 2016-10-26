@@ -12,7 +12,27 @@ header{
    flex-direction: column;
    background: rgba(0, 0, 0, 0.2);
 }
-
+.hamburger{
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px;
+}
+.hamburger .row{
+  height: 2px;
+  width: 20px;
+  background: #fff;
+  margin: 4px 0;
+  transition: all .3s ease;
+}
+.hamburger:hover .row{
+  background: #000;
+}
+input#show-menu{
+  display: none;
+}
+input#show-menu:checked ~ nav ul{
+  display: flex;
+}
 nav{
    display: flex;
    flex: 1;
@@ -51,34 +71,40 @@ nav ul li a:hover{
    display: flex;
    flex: 1 1 100%;
    justify-content: center;
-   padding: 10px;
+   padding: 5px;
    transition: all .3s ease;
 }
 .social a:hover{
    background: rgba(0, 0, 0, 0.5);
 }
 .social i{
-   font-size: 32px;
+   font-size: 24px;
    color: #fff;
 }
 
 
 /*Pads*/
 @media screen and (min-width: 500px){
-   nav ul{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-   }
-   nav ul li{
-      flex: 1 1 50%;
-   }
+  .hamburger{
+    display: none;
+  }
+  nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  nav ul li{
+    flex: 1 1 50%;
+  }
 }
 
 /*Desktop*/
 @media screen and (min-width: 1000px){
    header{
       flex-direction: row;
+   }
+   .hamburger{
+     display: none;
    }
    nav{
       flex: 1 1 80%;
