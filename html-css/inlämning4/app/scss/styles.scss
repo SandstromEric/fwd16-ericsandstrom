@@ -1,0 +1,198 @@
+//IMPORTS
+
+html, body{
+   font-family: sans-serif;
+   margin: 0;
+}
+body{
+   background: url('../images/o-SCOTLAND-facebook1.jpg') no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+}
+
+//HEADER
+header{
+  display: flex;
+  flex-direction: column-reverse;
+  background: rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 1000px){
+    flex-direction: row;
+  }
+
+  .hamburger{
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+
+    @media screen and (min-width: 500px){
+      display: none;
+    }
+    .row{
+      height: 2px;
+      width: 20px;
+      background: #fff;
+      margin: 4px 0;
+      transition: all .3s ease;
+    }
+  }
+
+  input#show-menu{
+    display: none;
+
+    &:checked ~ nav ul{
+      display: flex;
+    }
+  }
+
+//NAVIGATION
+  nav{
+    display: flex;
+    flex: 1;
+
+    @media screen and (min-width: 1000px){
+      flex: 1 1 80%;
+    }
+
+    ul{
+      display: none;
+      flex-direction: column;
+      flex: 1;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media screen and (min-width: 500px){
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      @media screen and (min-width: 1000px){
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      li{
+        display: flex;
+        flex: 1;
+
+        @media screen and (min-width: 500px){
+          flex: 1 1 50%;
+        }
+        @media screen and (min-width: 1000px){
+          flex: 1 1 100%;
+        }
+        a{
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          color: #fff;
+          text-decoration: none;
+          padding: 10px;
+          box-sizing: border-box;
+          transition: all .3s ease;
+          font-size: 24px;
+
+          &:hover{
+            background: rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+  }
+
+  .social{
+    display: flex;
+
+    a{
+      display: flex;
+      flex: 1 1 100%;
+      justify-content: center;
+      padding: 10px;
+      transition: all .3s ease;
+
+      @media screen and (min-width: 1000px){
+        flex: 1 1 20%;
+      }
+
+      &:hover{
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      i{
+        font-size: 24px;
+        color: #fff;
+
+        @media screen and (min-width: 1000px){
+          font-size: 24px;
+        }
+      }
+    }
+
+  }
+}
+
+.flex-box{
+  display: flex;
+  flex-direction: column;
+  opacity: 0.5;
+
+  @media screen and (min-width: 600px){
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .flex-item{
+    display: flex;
+    background: seagreen;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    border: 1px solid #fff;
+
+    @media screen and (min-width: 600px){
+      flex: 0 1 48%;
+
+      &:last-child{
+        flex: 0 1 98%;
+      }
+    }
+
+    .info{
+      display: flex;
+      margin: 10px 0;
+
+      .category{
+         flex: 1;
+      }
+    }
+
+    section{
+      display: flex;
+      flex-direction: column;
+
+      img{
+        max-width: 100%;
+        width: 100%;
+      }
+      .btn{
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        flex-direction: column;
+
+        button{
+          background: gold;
+          border: 0;
+          color: seagreen;
+          padding: 10px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
