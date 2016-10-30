@@ -1,0 +1,172 @@
+input#show-menu{
+  display: none;
+
+  &:checked{
+
+    ~ nav{
+
+      > ul{
+        display: flex;
+      }
+    }
+    ~ label{
+
+      .hamburger{
+
+        .row{
+          @include hamburger-aniamtion;
+        }
+      }
+    }
+  }
+}
+
+nav{
+  display: flex;
+  flex: 1;
+
+  @include respond-to(desktop){
+    flex: 1 1 80%;
+  }
+
+  ul{
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    list-style: none;
+    @extend %margin-padding-none;
+
+    @include respond-to(pads){
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include respond-to(desktop){
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    ul{
+      display: none;
+
+
+      @include respond-to(desktop){
+        display: none;
+        position: absolute;
+        background: #444;
+        top: 48px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+      }
+
+      @include respond-to(pads){
+
+      }
+
+      ul{
+
+        @include respond-to(pads){
+
+        }
+
+        @include respond-to(desktop){
+          transform: translateX(100%);
+          top: 0;
+        }
+      }
+    }
+
+    li{
+      display: flex;
+      flex: 1;
+      position: relative;
+
+      @include respond-to(pads){
+        flex: 1 1 50%;
+      }
+      @include respond-to(desktop){
+        flex: 1 1 100%;
+      }
+      &.has-sub{
+        display: block;
+
+        &:hover > ul{
+          display: block;
+        }
+      }
+      a{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        color: color(nav-link);
+        text-decoration: none;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 24px;
+        @extend %transitions;
+
+        &:hover{
+          background: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+}
+label#hamburger{
+  margin: 10px;
+  cursor: pointer;
+
+  @include respond-to(desktop){
+    margin: 0;
+  }
+
+  .hamburger{
+    display: inline;
+    margin: 10px;
+    transform-origin: center;
+    position: relative;
+
+    @include respond-to(pads){
+      display: none;
+    }
+
+    .row{
+      height: 2px;
+      width: 20px;
+      background: #fff;
+      transform-origin: center;
+      position: absolute;
+      @extend %transitions;
+      @include hamburger-pos;
+    }
+  }
+}
+.social{
+  display: flex;
+  flex: 1 1 20%;
+  a{
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    padding: 10px;
+    @extend %transitions;
+
+    @include respond-to(desktop){
+      flex: 1 1 20%;
+    }
+
+    &:hover{
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    i{
+      font-size: 24px;
+      color: color(text);
+
+      @include respond-to(desktop){
+        font-size: 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "base/normalize";
+@import "base/typography";
+
+@font-face {
+  font-family: Champange;
+  src: url(../../fonts/ChampagneLimousines.ttf);
+}
+
+html, body{
+   font-family: Champange;
+   @extend %margin-padding-none;
+}
+body{
+   background: url('../images/o-SCOTLAND-facebook1.jpg') no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+}

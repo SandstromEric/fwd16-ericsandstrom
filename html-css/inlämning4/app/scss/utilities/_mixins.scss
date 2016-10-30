@@ -1,0 +1,50 @@
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+@mixin first-five-flex{
+  @for $i from 1 through 5{
+    &:nth-child(#{$i}){
+      h2{
+        color: #000;
+      }
+      .info{
+        color: #000;
+      }
+    }
+  }
+}
+
+@mixin hamburger-aniamtion{
+  @for $i from 1 through 3{
+
+    @if $i == 1{
+      &:nth-child(#{$i}){
+        transform: rotateZ(45deg);
+        top: 0;
+      }
+    } @else if $i == 2{
+      &:nth-child(#{$i}){
+        transform: rotateZ(-45deg);
+        top: 0;
+      }
+    } @else if $i == 3{
+      &:nth-child(#{$i}){
+        background: rgba(0,0,0,0);
+        top: 0;
+      }
+    }
+  }
+}
+
+@mixin hamburger-pos{
+  @for $i from 0 through 2{
+    &:nth-child(#{$i + 1}){
+      top: 6px * $i;
+    }
+  }
+}
