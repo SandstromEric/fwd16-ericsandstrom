@@ -1,0 +1,15 @@
+header{
+  display: flex;
+  flex-direction: column-reverse;
+  background: rgba(0, 0, 0, 0.2);
+
+  @include respond-to(pads){
+    flex-direction: column;
+  }
+  @include respond-to(desktop){
+    flex-direction: row;
+  }
+
+  //NAVIGATION
+  @import "../modules/navigation";
+}

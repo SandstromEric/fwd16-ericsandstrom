@@ -1,0 +1,11 @@
+%transitions{
+  transition: all .3s ease;
+}
+%flex-column{
+  display: flex;
+  flex-direction: column;
+}
+%margin-padding-none{
+  margin: 0;
+  padding: 0;
+}
