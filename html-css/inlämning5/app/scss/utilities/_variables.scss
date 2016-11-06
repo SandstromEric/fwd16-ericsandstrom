@@ -1,14 +1,32 @@
 $colors: (
-  black: #111,
-  text: #fff,
-  green: #2e8b57,
-  border: #eee,
-  button: gold,
-  nav-link: #fff,
+   text: #fff,
+   background: #222,
+   primary: (
+      base: #009688,
+      light: lighten(#009688, 20%),
+      dark: darken(#009688, 20%),
+   ),
+   secondary: (
+      base: #FF3D00,
+      light: lighten(#FF3D00, 20%),
+      dark: darken(#FF3D00, 20%),
+   )
 );
 
 $breakpoints: (
-  pads: 500px,
-  flex: 600px,
-  desktop: 1000px,
+  pads: 768px,
+  desktop: 1024px,
+);
+
+$flex-colors: (
+   red,
+   pink,
+   purple,
+   indigo,
+   blue,
+   cyan,
+   teal,
+   green,
+   lime,
+   gold,
 );

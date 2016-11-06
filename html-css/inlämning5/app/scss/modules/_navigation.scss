@@ -1,180 +1,192 @@
-input#show-menu{
-  display: none;
+nav{
+   display: block;
+   background: #222;
 
-  &:checked{
+   h2{
+      display: none;
+   }
 
-    ~ nav{
+   input{
+      display: none;
+   }
 
-      > ul{
-        display: flex;
+   input#show-menu:checked{
+      ~ .hamburger{
+
       }
-    }
-    ~ label{
+      ~ .header-menu{
+         transform: scaleY(1);
+      }
+   }
 
-      .hamburger{
+   .hamburger{
+      padding: 10px;
 
-         .row{
-            @include hamburger-animation(45deg, -45deg);
+      @include respond-to(desktop){
+         display: none;
+      }
+      .row{
+         background: #fff;
+         height: 0.1em;
+         width: 20px;
+         margin-top: 4px;
+         &:first-child{
+            margin: 0;
          }
       }
    }
-}
-}
 
-nav{
-  display: flex;
-  flex: 1;
-
-  @include respond-to(desktop){
-    flex: 1 1 80%;
-  }
-
-  ul{
-    display: none;
-    flex-direction: column;
-    flex: 1;
-    list-style: none;
-    @extend %margin-padding-none;
-
-    @include respond-to(pads){
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-
-    @include respond-to(desktop){
-      display: flex;
-      flex-wrap: nowrap;
-    }
-    ul{
-      display: none;
-
-
-      @include respond-to(desktop){
-        display: none;
-        position: absolute;
-        background: #444;
-        top: 48px;
-        left: 0;
-        right: 0;
-        z-index: 100;
-      }
-
-      @include respond-to(pads){
-
-      }
-
-      ul{
-
-        @include respond-to(pads){
-
-        }
-
-        @include respond-to(desktop){
-          transform: translateX(99.9%);
-          top: 0;
-        }
-      }
-    }
-
-    li{
-      display: flex;
-      flex: 1;
-      position: relative;
-
-      @include respond-to(pads){
-        flex: 1 1 50%;
-      }
-      @include respond-to(desktop){
-        flex: 1 1 100%;
-      }
-      &.has-sub{
-        display: block;
-
-        &:hover > ul{
-          display: block;
-        }
-      }
-      a{
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        color: color(nav-link);
-        text-decoration: none;
-        padding: 10px;
-        box-sizing: border-box;
-        font-size: 24px;
-        @extend %transitions;
-
-        span{
-           font-size: 14px;
-           position: absolute;
-           top: 15px;
-           right: 20px;
-           font-family: Arial, sans-serif;
-           font-weight: bold;
-        }
-
-        &:hover{
-          background: rgba(0, 0, 0, 0.5);
-        }
-      }
-    }
-  }
-}
-label#hamburger{
-  margin: 10px;
-  cursor: pointer;
-
-  @include respond-to(desktop){
-    margin: 0;
-  }
-
-  .hamburger{
-    display: inline;
-    margin: 10px;
-    position: relative;
-
-    @include respond-to(pads){
-      display: none;
-    }
-
-    .row{
-      height: 2px;
-      width: 20px;
-      background: #fff;
-      transform-origin: center;
+   .header-menu{
+      transform: scaleY(0);
+      transform-origin: top;
       position: absolute;
+      left: 0;
+      right: 0;
       @extend %transitions;
-      @include hamburger-pos;
-    }
-  }
-}
-.social{
-  display: flex;
-  flex: 1 1 20%;
-  a{
-    display: flex;
-    flex: 1 1 100%;
-    justify-content: center;
-    padding: 10px;
-    @extend %transitions;
-
-    @include respond-to(desktop){
-      flex: 1 1 20%;
-    }
-
-    &:hover{
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    i{
-      font-size: 24px;
-      color: color(text);
 
       @include respond-to(desktop){
-        font-size: 24px;
+         transform: scaleY(1);
       }
-    }
-  }
+      .menu{
+         margin: 0;
+         padding: 0;
+
+         @include respond-to(pads){
+           display: flex;
+         }
+
+         li{
+            display: flex;
+            flex: 1 1 100%;
+            justify-content: center;
+            position: relative;
+            transition: background .2s ease;
+
+            input:checked{
+               ~ a{
+                  background: #555;
+                  color: color(primary, base);
+                  &:after{
+                     width: 100%;
+                  }
+               }
+               ~ a span{
+                  transform: rotateX(0deg);
+                  color: color(primary, base);
+               }
+               ~ ul{
+                  transform: scaleY(1);
+               }
+            }
+
+            a{
+               flex: 1 1 100%;
+               text-align: center;
+               padding: 10px 0;
+               color: #fff;
+               text-decoration: none;
+               font-weight: 700;
+               background: color(background);
+               @extend %transitions;
+
+               &:hover{
+                  background: lighten(color(background), 20%);
+                  color: color(primary, light);
+
+                  &::after{
+                    width: 100%;
+                  }
+               }
+
+               &:after{
+                 display: block;
+                 position: absolute;
+                 bottom: 0;
+                 left: 0;
+                 width: 0;
+                 height: 0.1em;
+                 background: color(primary, dark);
+                 content: "";
+                 transition: width 0.4s;
+               }
+               label{
+
+                  span{
+                     transition: all .3s ease;
+                     font-size: 12px;
+                     position: absolute;
+                     top: 0;
+                     right: 0;
+                     transform-origin: center;
+                     transform: rotateX(180deg);
+                     cursor: pointer;
+                     padding: 12px 15px;
+                     color: color(text);
+                     &:hover{
+                        color: #000;
+                     }
+                  }
+               }
+            }
+            .sub-menu{
+               position: absolute;
+               top: 41.6px;
+               left: 0;
+               right: 0;
+               padding: 0;
+               background: #222;
+               transform: scaleY(0);
+               transition: all .3s ease;
+               transform-origin: top;
+               z-index: 100;
+
+               li{
+                  a{
+                     font-size: 14px;
+                     padding: 8px;
+
+                     @include respond-to(pads){
+                        font-size: 1em;
+                        padding: 10px;
+                     }
+                     span{
+                        padding: 10px 15px;
+
+                        @include respond-to(pads){
+                           padding: 12px 15px;
+                        }
+                     }
+                  }
+               }
+
+               .sub-menu{
+                  top: 35.2px;
+
+                  @include respond-to(pads){
+                     top: 41.6px;
+                  }
+                  li{
+
+                     a{
+                        font-size: 12px;
+                        padding: 6px;
+
+                        @include respond-to(pads){
+                           font-size: 1em;
+                           padding: 10px;
+                        }
+
+                        span{
+
+                        }
+                     }
+                  }
+               }
+            }
+            /*&:hover > .sub-menu{
+               transform: scaleY(1);
+            }*/
+         }
+      }
+   }
 }

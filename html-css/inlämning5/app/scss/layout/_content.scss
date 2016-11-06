@@ -1,0 +1,51 @@
+.flex-box-container{
+   flex: 1;
+   .flex-box{
+      margin-top: 90px;
+      display: flex;
+      flex-direction: column;
+
+      @include respond-to(pads){
+         flex-flow: row wrap;
+      }
+
+      .flex-item{
+         display: flex;
+         flex-direction: column;
+         border-top: 3px solid color(secondary, dark);
+         border-radius: 2px;
+         margin: 5px;
+
+         @include loop-colors;
+         @include every-fifth;
+
+         @include respond-to(pads){
+            margin: 1%;
+            flex: 0 1 48%;
+         }
+         @include respond-to(desktop){
+            border-radius: 2px;
+            flex: 0 1 31.33%;
+         }
+         section{
+
+            header{
+                  padding: 10px;
+                  background: color(background);
+               h2{
+                  color: #fff;
+                  margin: 0;
+
+               }
+            }
+            article{
+               padding: 10px;
+               h2{
+                  margin: 0;
+                  font-weight: 400;
+               }
+            }
+         }
+      }
+   }
+}

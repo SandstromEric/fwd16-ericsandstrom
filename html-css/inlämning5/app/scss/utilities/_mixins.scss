@@ -6,56 +6,43 @@
   }
 }
 
-@mixin first-five-flex{
-  @for $i from 1 through 5{
-    &:nth-child(#{$i}){
-      h2{
-        color: #000;
-      }
-      .info{
-        color: #000;
-      }
-    }
-  }
-}
-
-@mixin everyFifth{
-   @for $i from 1 through 10 {
-      @if $i % 5 == 0{
-         &:nth-child(#{$i}){
-            flex: 0 1 98%;
-         }
-      }@else{
-         flex: 0 1 48%;
+@mixin hamburger-row-pos {
+   @for $i from 0 through 2{
+      &:nth-child(#{$i + 1}){
+         top: 3px * $i;
       }
    }
 }
-@mixin hamburger-animation($deg1, $deg2){
-  @for $i from 1 through 3{
 
-    @if $i == 1{
+@mixin loop-colors {
+   @for $i from 1 through length($flex-colors){
       &:nth-child(#{$i}){
-        top: 0px;
-        transform: rotateZ($deg1);
+         background: nth($flex-colors, $i);
       }
-    } @else if $i == 2{
-      &:nth-child(#{$i}){
-        top: 0;
-        transform: rotateZ($deg2);
-      }
-    } @else if $i == 3{
-      &:nth-child(#{$i}){
-        top: 0;
-        background: rgba(0,0,0,0)
-      }
-    }
-  }
+   }
 }
 
-@mixin hamburger-pos{
-  @for $i from 0 through 2{
-     &:nth-child(#{$i + 1}){
-        top: 6px * $i;
-     }
-  }
+@mixin every-fifth{
+   @for $i from 1 through 10{
+      @if $i % 5 == 0 {
+         @include respond-to(pads){
+            &:nth-child(#{$i}){
+               flex: 1 1 98%;
+            }
+         }
+         @include respond-to(desktop){
+            &:nth-child(#{$i}){
+               flex: 1 1 62%;
+            }
+         }
+      }
+   }
+}
+
+@mixin random-flex-basis{
+   @for $i from 1 through 6{
+      &:nth-child(#{$i}){
+         flex: 1 1 (random(6) + 1) * 10%;
+      }
+   }
 }

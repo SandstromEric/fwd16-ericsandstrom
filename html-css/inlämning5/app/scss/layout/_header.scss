@@ -1,15 +1,53 @@
-header{
-  display: flex;
-  flex-direction: column-reverse;
-  background: rgba(0, 0, 0, 0.2);
+.header-container{
+   position: fixed;
+   right: 0;
+   left: 0;
+   top: 0;
 
-  @include respond-to(pads){
-    flex-direction: column;
-  }
-  @include respond-to(desktop){
-    flex-direction: row;
-  }
+   header{
+      display: flex;
+      background: color(primary, base);
+      padding: 5px 0;
+      @include respond-to(pads){
+         padding: 10px 0;
+      }
 
-  //NAVIGATION
-  @import "../modules/navigation";
+      > div{
+         display: flex;
+         align-self: center;
+         padding: 0 10px;
+      }
+      .logo{
+         flex: 2;
+
+         @include respond-to(pads){
+            flex: 3;
+         }
+         h1{
+            font-size: 20px;
+            margin: 0;
+         }
+      }
+      .search{
+         flex: 3;
+
+         @include respond-to(pads){
+            flex: 1;
+         }
+         input{
+            height: 10px;
+            padding: 7px;
+            border: 0;
+            border-radius: 2px;
+            font-size: 1em;
+            width: 100%;
+
+            @include respond-to(pads){
+               padding: 10px;
+            }
+         }
+      }
+   }
+   //NAVIGATION
+   @import "../modules/navigation";
 }

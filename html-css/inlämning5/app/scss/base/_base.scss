@@ -1,18 +1,37 @@
 @import "base/normalize";
 @import "base/typography";
-
-@font-face {
-  font-family: Champange;
-  src: url(../../fonts/ChampagneLimousines.ttf);
-}
+@import "../modules/scrollbar";
 
 html, body{
-   font-family: Champange;
-   @extend %margin-padding-none;
+   font-family: 'Open Sans Condensed', sans-serif;
    height: 100%;
 }
 body{
-   background: url('../images/o-SCOTLAND-facebook1.jpg') no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
+   display: flex;
+   flex-direction: column;
+}
+
+ul{
+   margin: 0;
+}
+
+li{
+}
+
+a{
+   color: color(secondary, base);
+   text-decoration: none;
+
+   &:hover{
+      color: color(secondary, dark);
+   }
+}
+input{
+   border-radius: 2px;
+   border: none;
+   padding: 5px;
+
+   &:focus{
+      outline-color: color(secondary, base);
+   }
 }

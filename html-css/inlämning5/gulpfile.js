@@ -19,11 +19,11 @@ var runSequence = require('run-sequence');
 
 // Start browserSync server
 gulp.task('browserSync', function() {
-  browserSync({
-    server: {
-      baseDir: 'app'
-    }
-  })
+   browserSync({
+      server: {
+         baseDir: 'app'
+      }
+   })
 })
 
 gulp.task('sass', function() {

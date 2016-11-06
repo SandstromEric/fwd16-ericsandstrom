@@ -6,291 +6,245 @@
       <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
       <script src="https://use.fontawesome.com/3384f29afc.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
    </head>
    <body>
-      <header>
+      <div class="header-container">
 
-        <input type="checkbox" name="show-menu" id="show-menu">
+         <header>
+            <div class="logo">
+                <h1>Site Logo</h1>
+            </div>
+            <div class="search">
+               <input type="text" name="search" value="" placeholder="Search">
+            </div>
+         </header>
 
          <nav>
-            <ul>
-               <li><a href="">Item 1</a></li>
-               <li><a href="">Item 2</a></li>
-               <li><a href="">Item 3</a></li>
-               <li class="has-sub">
-                  <a href="">Item 4 <span>></span></a>
-                  <ul>
-                    <li><a href="">Item 4 1</a></li>
-                    <li><a href="">Item 4 2</a></li>
-                    <li class="has-sub">
-                      <a href="">Item 4 3 <span>></span></a>
-                      <ul>
-                        <li><a href="">Item 4 3 1</a></li>
-                        <li><a href="">Item 4 3 2</a></li>
-                        <li><a href="">Item 4 3 3</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="">Item 4 4</a></li>
-                  </ul>
-               </li>
-               <li><a href="">Item 5</a></li>
-               <li><a href="">Item 6</a></li>
-            </ul>
+            <h2>Meny</h2>
+
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu">
+               <div class="hamburger">
+                  <div class="row"></div>
+                  <div class="row"></div>
+                  <div class="row"></div>
+               </div>
+            </label>
+
+            <div class="header-menu">
+               <ul class="menu">
+                  <li><a href="">Item 1</a></li>
+                  <li><a href="">Item 2</a></li>
+                  <li class="has-sub">
+                     <input type="checkbox" name="name" id="expand-sub">
+                     <a href="">Item 3
+                        <label for="expand-sub">
+                           <span>^</span>
+                        </label>
+                     </a>
+                     <ul class="sub-menu">
+                        <li><a href="">Item 3.1</a></li>
+                        <li><a href="">Item 3.2</a></li>
+                        <li><a href="">Item 3.3</a></li>
+                        <li><a href="">Item 3.4</a></li>
+                        <li>
+                           <input type="checkbox" name="name" id="expand-sub-sub">
+                           <a href="">Item 3.5
+                              <label for="expand-sub-sub">
+                                 <span>^</span>
+                              </label>
+                           </a>
+                           <ul class="sub-menu">
+                              <li><a href="">Item 3.5.1</a></li>
+                              <li><a href="">Item 3.5.2</a></li>
+                              <li><a href="">Item 3.5.3</a></li>
+                              <li><a href="">Item 3.5.4</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><a href="">Item 4</a></li>
+                  <li><a href="">Item 5</a></li>
+                  <li><a href="">Item 6</a></li>
+               </ul>
+            </div>
+
          </nav>
-
-         <label id="hamburger" for="show-menu">
-           <div class="hamburger">
-             <div class="row"></div>
-             <div class="row"></div>
-             <div class="row"></div>
-           </div>
-         </label>
-         <div class="social">
-            <a href="#">
-               <div class="icon">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-               </div>
-            </a>
-            <a href="#">
-               <div class="icon">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-               </div>
-            </a>
-            <a href="#">
-               <div class="icon">
-                  <i class="fa fa-github" aria-hidden="true"></i>
-               </div>
-            </a>
-            <a href="#">
-               <div class="icon">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-               </div>
-            </a>
-         </div>
-      </header>
-
-      <div class="flex-box">
-         <div class="flex-item">
-            <section>
-               <h2>Title 1</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\japanese-whisky-hibiki.jpg" alt="">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet optio dolor, aut, magnam vel consequatur sed magni eveniet vitae at officia eaque illum corporis tempora fugit vero quo ea ullam!</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 2</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\whisky-banner.jpg" alt="">
-                  <p>Molestias, tenetur molestiae eum dolorum. Quia rerum ipsa exercitationem autem eius, debitis accusamus adipisci nulla et corporis, voluptas quidem, qui natus culpa deleniti magni cupiditate atque voluptatum dolore, ducimus! Quisquam.</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 3</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\image.jpg" alt="">
-                  <p>Delectus consequatur doloremque dolorem consectetur unde laborum iste, repudiandae at maiores, aliquam eaque atque rem eius explicabo animi ad, eos quibusdam laboriosam ipsum quo est quis inventore beatae cum nulla.</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 4</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\Bilder-zum-Whisky-Acrylglas-Aludibond.jpg" alt="">
-                  <p>Cupiditate optio, temporibus sequi, in similique neque ex corporis eum, reiciendis esse modi saepe. Alias minus quasi mollitia magni ipsam neque reiciendis labore ducimus tempore, vitae omnis laboriosam iusto rem.</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 5</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\big.jpg" alt="">
-                  <p>Quae quibusdam voluptatem odit magni, dignissimos ab quos harum, assumenda repellendus similique rerum, voluptatibus facilis aut nemo ex impedit inventore et ut est ipsam ad magnam odio eveniet cumque iure?</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 1</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\japanese-whisky-hibiki.jpg" alt="">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet optio dolor, aut, magnam vel consequatur sed magni eveniet vitae at officia eaque illum corporis tempora fugit vero quo ea ullam!</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 2</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\whisky-banner.jpg" alt="">
-                  <p>Molestias, tenetur molestiae eum dolorum. Quia rerum ipsa exercitationem autem eius, debitis accusamus adipisci nulla et corporis, voluptas quidem, qui natus culpa deleniti magni cupiditate atque voluptatum dolore, ducimus! Quisquam.</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 3</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\image.jpg" alt="">
-                  <p>Delectus consequatur doloremque dolorem consectetur unde laborum iste, repudiandae at maiores, aliquam eaque atque rem eius explicabo animi ad, eos quibusdam laboriosam ipsum quo est quis inventore beatae cum nulla.</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 4</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\Bilder-zum-Whisky-Acrylglas-Aludibond.jpg" alt="">
-                  <p>Cupiditate optio, temporibus sequi, in similique neque ex corporis eum, reiciendis esse modi saepe. Alias minus quasi mollitia magni ipsam neque reiciendis labore ducimus tempore, vitae omnis laboriosam iusto rem.</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
-         </div>
-         <div class="flex-item">
-            <section>
-               <h2>Title 5</h2>
-               <div class="info">
-                  <div class="category">
-                     <i class="fa fa-tag" aria-hidden="true"></i>
-                     Single Malt
-                  </div>
-                  <div class="author">
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Eric Sandström
-                  </div>
-               </div>
-               <article>
-                  <img src="images\big.jpg" alt="">
-                  <p>Quae quibusdam voluptatem odit magni, dignissimos ab quos harum, assumenda repellendus similique rerum, voluptatibus facilis aut nemo ex impedit inventore et ut est ipsam ad magnam odio eveniet cumque iure?</p>
-               </article>
-               <div class="btn">
-                  <button>Read More</button>
-               </div>
-            </section>
+      </div>
+      
+      <div class="flex-box-container">
+         <div class="flex-box">
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-1</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-1</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quaerat at iure saepe, voluptatum reiciendis dolor consequuntur laborum nostrum eveniet mollitia quasi, in inventore iste sapiente nihil. Nobis, reprehenderit! Illum ipsa neque ipsum nemo, reprehenderit consequatur, id unde perferendis voluptates.</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-2</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-2</h2>
+                     <p>Accusantium pariatur nisi velit rem numquam error, ea omnis voluptates eum sapiente. Perferendis odit quisquam provident, officia repellat repudiandae numquam. Debitis odio possimus quos, quas perspiciatis. Voluptate autem eos magni dicta debitis ipsam hic, eaque voluptas esse. Delectus fuga, non.</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-3</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-3</h2>
+                     <p>Accusantium a deleniti consectetur iure at in cum facere. Iure nisi corporis optio adipisci velit, quaerat, aperiam inventore dignissimos nulla provident tempora enim voluptatibus molestias laudantium cumque facere dicta blanditiis eius reiciendis aliquam soluta repellat culpa. Nostrum dicta, alias incidunt!</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-4</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-4</h2>
+                     <p>Sunt inventore sit optio quae ad, ipsa accusamus pariatur delectus error doloribus laboriosam veniam quaerat, neque dolorem! Nostrum facilis, explicabo fugit voluptates alias assumenda veniam illum libero doloribus non maiores blanditiis itaque vero amet harum, eos reiciendis corporis pariatur, dolorem.</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-5</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-5</h2>
+                     <p>Ratione dolorum beatae, aliquid hic pariatur est, iusto obcaecati eveniet repellat placeat voluptates explicabo tempora velit, quo porro ex rerum laudantium odio illo dolorem quidem ipsa magnam voluptate. Placeat nobis maxime doloremque inventore fugiat illum provident illo itaque nulla quia!</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-6</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-6</h2>
+                     <p>Maxime cum quisquam vitae excepturi delectus expedita nam cumque doloremque soluta adipisci fuga, id molestias vero aliquam necessitatibus temporibus, provident reiciendis saepe odit, tempore numquam! Illo perspiciatis impedit facilis ducimus, deserunt necessitatibus similique, nisi facere aliquid, accusamus cupiditate soluta! Odit?</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-7</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-7</h2>
+                     <p>Ducimus, quibusdam, cum! Officiis sit, veritatis delectus alias rerum totam corrupti nisi vel impedit quae dolorum sint, hic quia! Quaerat porro nostrum nisi sapiente quia doloremque, in beatae, odio et deserunt qui nobis quos ab provident. Autem, deserunt impedit temporibus!</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-8</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-8</h2>
+                     <p>Quia iusto labore architecto, omnis, veritatis laborum fuga accusantium, ea ratione doloremque, distinctio ex. Eos architecto ipsum error, hic, laudantium eligendi nihil alias quasi officiis asperiores quaerat non ut doloremque esse. Labore consequuntur cum nesciunt corporis molestias, commodi, porro alias!</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-9</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-9</h2>
+                     <p>Repellat, minima laudantium dolore aliquam saepe voluptates consectetur ad atque et odio sunt dolor. Ipsam mollitia placeat ex, eveniet dicta hic molestiae eius dolore. Nulla at eum libero quisquam ad voluptas vitae accusamus nostrum repudiandae tempore, ipsa. A, temporibus, ad!</p>
+                  </article>
+               </section>
+            </div>
+            <div class="flex-item">
+               <section>
+                  <header>
+                     <h2>Title-10</h2>
+                  </header>
+                  <img src="" alt="" class="flex-banner">
+                  <article>
+                     <h2>Subtitle-10</h2>
+                     <p>Dolorem, illum, amet. Totam ea dolorum ipsa ipsum, dignissimos quidem reiciendis? Possimus neque placeat sint tempore, omnis amet veritatis, non corporis nihil magnam nisi error sapiente nesciunt at quisquam pariatur sunt reiciendis explicabo, reprehenderit officia ducimus vitae? Odio officia, pariatur.</p>
+                  </article>
+               </section>
+            </div>
          </div>
       </div>
-
+      <div class="footer-container">
+         <footer>
+            <div class="col">
+               <section>
+                  <header>
+                     <h2>Title-Col-1</h2>
+                  </header>
+                  <article>
+                     <h2>Subtitle-Col-1</h2>
+                     <ul>
+                        <li><a href="">Item 1</a></li>
+                        <li><a href="">Item 2</a></li>
+                        <li><a href="">Item 3</a></li>
+                        <li><a href="">Item 4</a></li>
+                        <li><a href="">Item 5</a></li>
+                        <li><a href="">Item 6</a></li>
+                     </ul>
+                  </article>
+               </section>
+            </div>
+            <div class="col">
+               <section>
+                  <header>
+                     <h2>Title-Col-2</h2>
+                  </header>
+                  <article>
+                     <h2>Subtitle-Col-2</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis nobis excepturi consequatur dolorem, eos suscipit ratione ut qui nesciunt laboriosam?</p>
+                  </article>
+               </section>
+            </div>
+            <div class="col">
+               <section>
+                  <header>
+                     <h2>Title-Col-3</h2>
+                  </header>
+                  <article>
+                     <h2>Subtitle-Col-3</h2>
+                     <form>
+                        <input type="text" name="first_name" value="" placeholder="First Name">
+                        <input type="text" name="last_name" value="" placeholder="Last Name">
+                        <input type="email" name="email" value="" placeholder="Email">
+                        <input type="submit" name="submit" value="Subscribe">
+                     </form>
+                  </article>
+               </section>
+            </div>
+         </footer>
+      </div>
    </body>
 </html>
