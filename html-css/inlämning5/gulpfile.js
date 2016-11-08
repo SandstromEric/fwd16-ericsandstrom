@@ -2,15 +2,18 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create('app');
+var browserSync2 = require('browser-sync').create('sassdoc');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
+var notify = require('gulp-notify');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
+var sassdoc = require('sassdoc');
 
 
 
@@ -19,12 +22,12 @@ var runSequence = require('run-sequence');
 
 // Start browserSync server
 gulp.task('browserSync', function() {
-   browserSync({
-      server: {
-         baseDir: 'app'
-      }
-   })
-})
+    browserSync.init({
+        server: {
+            baseDir: ["./app", "./sassdoc"]
+        }
+    });
+});
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss and children dirs
@@ -32,6 +35,7 @@ gulp.task('sass', function() {
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('app/css')) // Outputs it in the css folder
+
     .pipe(browserSync.reload({ // Reloading with Browser Sync
       stream: true
     }));
@@ -41,6 +45,7 @@ gulp.task('sass', function() {
 gulp.task('watch', function() {
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('sassdoc/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
 })
 
@@ -55,16 +60,19 @@ gulp.task('useref', function() {
     .pipe(gulpIf('*.js', uglify()))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'));
+
 });
 
 // Optimizing Images
 gulp.task('images', function() {
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
     // Caching images that ran through imagemin
-    .pipe(cache(imagemin({
-      interlaced: true,
+   .pipe(cache(imagemin({
+      optimizationLevel: 5, progressive: true, interlaced: true
     })))
     .pipe(gulp.dest('dist/images'))
+    .pipe(notify({ message: 'Images task complete' }));
+
 });
 
 // Copying fonts
@@ -73,10 +81,14 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('dist/fonts'))
 })
 
-gulp.task('css', function() {
-  return gulp.src('app/css/**/*.+(css)')
-    .pipe(gulp.dest('dist/css'))
+//Sass documentation
+gulp.task('sassdoc', function () {
+  return gulp
+    .src('app/scss/**/*.scss')
+    .pipe(sassdoc())
+    .resume();
 });
+
 
 // Cleaning
 gulp.task('clean', function() {
@@ -102,7 +114,7 @@ gulp.task('build', function(callback) {
   runSequence(
     'clean:dist',
     'sass',
-    ['useref', 'images', 'fonts', 'css'],
+    ['useref', 'images', 'fonts', 'sassdoc'],
     callback
   )
 })

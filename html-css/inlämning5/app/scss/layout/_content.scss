@@ -1,7 +1,8 @@
 .flex-box-container{
    flex: 1;
+   margin-top: 90px;
+
    .flex-box{
-      margin-top: 90px;
       display: flex;
       flex-direction: column;
 
@@ -43,6 +44,9 @@
                h2{
                   margin: 0;
                   font-weight: 400;
+               }
+               p{
+
                }
             }
          }

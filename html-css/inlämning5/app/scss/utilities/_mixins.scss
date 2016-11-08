@@ -1,3 +1,4 @@
+///Breakpoints
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
@@ -14,35 +15,49 @@
    }
 }
 
+///Looping through the map flex-colors and applying a different background-color
 @mixin loop-colors {
+
    @for $i from 1 through length($flex-colors){
+      $r : random(256) - 1;
+      $g : random(256) - 1;
+      $b : random(256) - 1;
+      $brightness : (($r / 255) * 0.3 + ($g / 255) * 0.59 + ($b / 255) * 0.11) * 100;
+      @warn $brightness;
+
       &:nth-child(#{$i}){
-         background: nth($flex-colors, $i);
+         background-color: rgb($r, $g, $b);
+         @if $brightness < 33{
+            color: color(text);
+         }
       }
    }
 }
 
+
+///Looping through every fifth element
 @mixin every-fifth{
-   @for $i from 1 through 10{
-      @if $i % 5 == 0 {
-         @include respond-to(pads){
-            &:nth-child(#{$i}){
-               flex: 1 1 98%;
-            }
-         }
-         @include respond-to(desktop){
-            &:nth-child(#{$i}){
-               flex: 1 1 62%;
-            }
-         }
+   &:nth-child(5n+5){
+      @include respond-to(pads){
+         flex: 1 1 98%;
+      }
+      @include respond-to(desktop){
+         flex: 1 1 62%;
       }
    }
 }
 
+///Every time sass compiles to css every element will get a random flex-basis between 25 to 60
 @mixin random-flex-basis{
    @for $i from 1 through 6{
       &:nth-child(#{$i}){
-         flex: 1 1 (random(6) + 1) * 10%;
+         flex: 1 1 (random(8) + 4) * 5%;
       }
+   }
+}
+
+@mixin change-text-color(){
+   @for $i from 1 through length($flex-colors){
+
    }
 }

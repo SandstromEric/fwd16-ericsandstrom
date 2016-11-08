@@ -1,3 +1,4 @@
+///General color map
 $colors: (
    text: #fff,
    background: #222,
@@ -13,20 +14,22 @@ $colors: (
    )
 );
 
+///Breakpoints for the sit
 $breakpoints: (
   pads: 768px,
   desktop: 1024px,
 );
 
+///Flex-item color map
 $flex-colors: (
-   red,
-   pink,
-   purple,
-   indigo,
-   blue,
-   cyan,
-   teal,
-   green,
-   lime,
-   gold,
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
 );
