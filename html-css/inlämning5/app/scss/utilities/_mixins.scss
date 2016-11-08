@@ -7,33 +7,29 @@
   }
 }
 
-@mixin hamburger-row-pos {
-   @for $i from 0 through 2{
-      &:nth-child(#{$i + 1}){
-         top: 3px * $i;
-      }
-   }
-}
-
-///Looping through the map flex-colors and applying a different background-color
+///Looping through the map flex-colors and applying a different background-color and text-color based on the background-color's brightness
 @mixin loop-colors {
 
-   @for $i from 1 through length($flex-colors){
-      $r : random(256) - 1;
-      $g : random(256) - 1;
-      $b : random(256) - 1;
-      $brightness : (($r / 255) * 0.3 + ($g / 255) * 0.59 + ($b / 255) * 0.11) * 100;
-      @warn $brightness;
+  @for $i from 1 through length($flex-colors){
+    $color: nth($flex-colors, $i);
 
-      &:nth-child(#{$i}){
-         background-color: rgb($r, $g, $b);
-         @if $brightness < 33{
-            color: color(text);
-         }
-      }
-   }
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    //Converting RGB to YIQ
+    $brightness: (($r / 255) * 0.3 + ($g / 255) * 0.59 + ($b / 255) * 0.11) * 100;
+    @warn $brightness;
+
+    &:nth-child(#{$i}){
+       background-color: $color;
+       @if $brightness < 50{
+          color: color(text);
+       }
+    }
+
+  }
 }
-
 
 ///Looping through every fifth element
 @mixin every-fifth{
@@ -53,11 +49,5 @@
       &:nth-child(#{$i}){
          flex: 1 1 (random(8) + 4) * 5%;
       }
-   }
-}
-
-@mixin change-text-color(){
-   @for $i from 1 through length($flex-colors){
-
    }
 }

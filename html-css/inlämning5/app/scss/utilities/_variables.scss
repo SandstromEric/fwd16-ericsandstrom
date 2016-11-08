@@ -14,7 +14,7 @@ $colors: (
    )
 );
 
-///Breakpoints for the sit
+///Breakpoints for the site
 $breakpoints: (
   pads: 768px,
   desktop: 1024px,
@@ -22,14 +22,14 @@ $breakpoints: (
 
 ///Flex-item color map
 $flex-colors: (
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
-   rgb(random(205) + 50, random(205) + 50, random(205) + 50),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
 );
