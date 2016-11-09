@@ -16,7 +16,6 @@
          border-top: 3px solid color(secondary, dark);
          border-radius: 2px;
          margin: 5px;
-
          @include loop-colors;
          @include every-fifth;
 

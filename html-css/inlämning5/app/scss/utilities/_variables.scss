@@ -22,14 +22,14 @@ $breakpoints: (
 
 ///Flex-item color map
 $flex-colors: (
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
-   rgb(random(256) - 1, random(256) - 1, random(256) - 1),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
+   hsl(random(361) - 1, random(86) + 14, random(76) + 14),
 );
