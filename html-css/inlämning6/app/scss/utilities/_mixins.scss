@@ -34,3 +34,7 @@
   @extend %flex-card-pads;
   @extend %flex-card-desktop;
 }
+
+@mixin expand{
+  transform: scaleY(1) !important;
+}

@@ -20,6 +20,14 @@ nav{
       ~ .mega{
          @extend %expand;
       }
+      ~ a {
+        background: #555;
+        color: color(primary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
+        label span{
+          transform: rotateX(0deg) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
+          color: color(secondary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
+        }
+      }
    }
 
    .hamburger{
@@ -143,7 +151,7 @@ nav{
               height: auto;
             }
             ul{
-              margin: auto;
+              margin: auto 5px;
               padding: 0;
               flex: 1;
 
