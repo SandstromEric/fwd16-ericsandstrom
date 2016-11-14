@@ -1,0 +1,62 @@
+.flex-box-container{
+   flex: 1;
+   margin-top: 90px;
+
+   .flex-box{
+      display: flex;
+      flex-direction: column;
+
+      @include respond-to(pads){
+         flex-flow: row wrap;
+      }
+
+      .flex-item{
+
+         @include flex-card;
+         @include specific-flex-card(1, 64.67%, 48%);
+         @include loop-flex-cards;
+
+         section{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            header{
+                  padding: 10px;
+                  background: color(background);
+               h2{
+                  color: #fff;
+                  margin: 0;
+
+               }
+            }
+            img{
+              max-width: 100%;
+              width: 100%;
+            }
+            article{
+               padding: 10px;
+               flex: 1;
+
+               h2{
+                  margin: 0;
+                  font-weight: 400;
+               }
+               p{
+
+               }
+            }
+            footer{
+              background: color(background);
+              color: color(text);
+              padding: 10px 20px;
+              text-align: right;
+
+              i{
+                padding: 0 5px;
+              }
+            }
+         }
+      }
+   }
+}

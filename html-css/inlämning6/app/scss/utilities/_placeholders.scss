@@ -1,0 +1,36 @@
+///The standard transition for the websit
+%transitions{
+   transition: all .3s ease;
+}
+
+///Expanding element to full scale
+%expand{
+  transform: scaleY(1) !important;
+}
+
+///Basic Flex-card rules
+%flex-card{
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid color(secondary, dark);
+  border-bottom: 3px solid color(secondary, dark);
+  border-radius: 2px;
+  background: color(primary, base);
+  color: color(text);
+  flex: 1;
+  margin: 1%;
+}
+
+///Rules for flex-cards on pads
+%flex-card-pads{
+  @include respond-to(pads){
+    min-width: 31.33%;
+  }
+}
+
+///Rules for flex-cards on desktop
+%flex-card-desktop{
+  @include respond-to(desktop){
+    min-width: 23%;
+  }
+}

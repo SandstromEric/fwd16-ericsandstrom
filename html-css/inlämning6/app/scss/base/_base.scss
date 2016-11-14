@@ -1,0 +1,37 @@
+@import "base/normalize";
+@import "base/typography";
+@import "../modules/scrollbar";
+
+html, body{
+   font-family: 'Open Sans Condensed', sans-serif;
+   height: 100%;
+}
+body{
+   display: flex;
+   flex-direction: column;
+}
+
+ul{
+   margin: 0;
+}
+
+li{
+}
+
+a{
+   color: color(secondary, base);
+   text-decoration: none;
+
+   &:hover{
+      color: color(secondary, dark);
+   }
+}
+input{
+   border-radius: 2px;
+   border: none;
+   padding: 5px;
+
+   &:focus{
+      outline-color: color(secondary, base);
+   }
+}

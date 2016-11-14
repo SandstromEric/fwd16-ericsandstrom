@@ -1,0 +1,95 @@
+.footer-container{
+   background: color(background);
+   border-top: 3px solid color(secondary, dark);
+
+   footer{
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+      flex: 1;
+      @include respond-to(pads){
+         flex-direction: row;
+      }
+
+      .col{
+         display: flex;
+         flex: 1;
+         padding: 10px;
+
+         section{
+            flex: 1;
+
+            h2{
+               color: color(text);
+               margin: 0;
+            }
+
+            article{
+
+               h2{
+                  font-weight: 400;
+                  font-size: 20px;
+               }
+
+               p{
+                  color: color(text);
+                  margin: 10px 0;
+               }
+
+               ul{
+                  padding: 0;
+                  margin: 10px 0;
+                  display: flex;
+                  flex-flow: column nowrap;
+
+                  li{
+                     list-style: none;
+                     margin: 1%;
+                     flex: 1;
+
+                     a{
+                        display: flex;
+                        justify-content: center;
+                        padding: 5px;
+                        background: color(primary, light);
+                        border-radius: 2px;
+                        @extend %transitions;
+
+                        &:hover{
+                           color: color(primary, light);
+                           background: color(secondary, dark);
+                        }
+                     }
+                  }
+               }
+               form{
+                  display: flex;
+                  flex-wrap: wrap;
+                  margin: 10px 0;
+                  
+                  input{
+                     display: flex;
+                     margin: 1%;
+                     @extend %transitions;
+
+                     &[type="text"]{
+                        flex: 1 1 40%;
+                     }
+                     &[type="email"], &[type="submit"]{
+                        flex: 1 1 100%;
+                     }
+                     &[type="submit"]{
+                        justify-content: center;
+
+                        &:hover{
+                           background: color(secondary, base);
+                           color: color(text);
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

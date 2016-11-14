@@ -50,6 +50,7 @@ nav{
       .menu{
          margin: 0;
          padding: 0;
+         position: relative;
 
          @include respond-to(pads){
            display: flex;
@@ -59,7 +60,6 @@ nav{
             display: flex;
             flex: 1 1 100%;
             justify-content: center;
-            position: relative;
             transition: background .2s ease;
 
             input:checked{
