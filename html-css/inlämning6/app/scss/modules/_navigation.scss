@@ -20,10 +20,10 @@ nav{
       ~ .mega{
          @extend %expand;
       }
-      ~ a {
+      ~ label {
         background: #555;
         color: color(primary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
-        label span{
+        span{
           transform: rotateX(0deg) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
           color: color(secondary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
         }
@@ -91,10 +91,6 @@ nav{
                   background: lighten(color(background), 20%);
                   color: color(primary, light);
                 }
-
-                > .mega{
-                  transform: scaleY(1);
-                }
               }
             }
 
@@ -112,26 +108,39 @@ nav{
                   color: color(primary, light);
                }
 
-               label{
 
-                  span{
-                     transition: all .3s ease;
-                     font-size: 12px;
-                     position: absolute;
-                     top: 0;
-                     right: 0;
-                     transform-origin: center;
-                     transform: rotateX(180deg);
-                     cursor: pointer;
-                     padding: 12px 15px;
-                     color: color(text);
-                     &:hover{
-                        color: #000;
-                     }
+            }
+            label{
+              flex: 1 1 100%;
+              text-align: center;
+              padding: 10px 0;
+              color: #fff;
+              text-decoration: none;
+              font-weight: 700;
+              @extend %transitions;
+              position: relative;
+              cursor: pointer;
+
+              &:hover{
+                 background: lighten(color(background), 20%);
+                 color: color(primary, light);
+              }
+               span{
+                  transition: all .3s ease;
+                  font-size: 12px;
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  transform-origin: center;
+                  transform: rotateX(180deg);
+                  cursor: pointer;
+                  padding: 12px 15px;
+                  color: color(text);
+                  &:hover{
+                     color: #000;
                   }
                }
             }
-
           .mega{
             transform: scaleY(0);
             transform-origin: top;
