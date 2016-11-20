@@ -1,0 +1,40 @@
+///Breakpoints
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+}
+
+///Targets a specific flex-card with the 1st parameter and changes size through the 2nd and 3rd parameter ($i, $pads, $desktop)
+@mixin specific-flex-card($num, $size1, $size2){
+   &:nth-child(#{$num}){
+      @include respond-to(pads){
+         min-width: $size1;
+      }
+      @include respond-to(desktop){
+         min-width: $size2;
+      }
+   }
+}
+
+///Looping through all flex cards and adding an addition oppacity to every card
+@mixin loop-flex-cards{
+  @for $i from 1 through 8{
+    &:nth-child(#{$i}){
+       opacity: ($i * 10 / 100) + 0.2;
+    }
+  }
+}
+
+///Rules for every flex-card on the site
+@mixin flex-card{
+  @extend %flex-card;
+  @extend %flex-card-pads;
+  @extend %flex-card-desktop;
+}
+
+@mixin expand{
+  transform: scaleY(1) !important;
+}

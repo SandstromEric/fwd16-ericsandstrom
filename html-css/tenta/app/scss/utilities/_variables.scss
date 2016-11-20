@@ -1,0 +1,21 @@
+///General color map
+$colors: (
+   text: #fff,
+   background: #222,
+   primary: (
+      base: #FF5722,
+      light: lighten(#FF5722, 20%),
+      dark: darken(#FF5722, 20%),
+   ),
+   secondary: (
+      base: #B388FF,
+      light: lighten(#B388FF, 20%),
+      dark: darken(#B388FF, 20%),
+   )
+);
+
+///Breakpoints for the site
+$breakpoints: (
+  pads: 768px,
+  desktop: 1024px,
+);

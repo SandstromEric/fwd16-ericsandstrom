@@ -1,0 +1,208 @@
+nav{
+   display: block;
+   background: #222;
+
+   h2{
+      display: none;
+   }
+
+   input{
+      display: none;
+   }
+
+   input:checked{
+      ~ .hamburger{
+
+      }
+      ~ .header-menu{
+         @extend %expand;
+      }
+      ~ .mega{
+         @extend %expand;
+      }
+      ~ label {
+        background: #555;
+        color: color(primary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
+        span{
+          transform: rotateX(0deg) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
+          color: color(secondary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
+        }
+      }
+   }
+
+   .hamburger{
+      padding: 10px;
+
+      @include respond-to(desktop){
+         display: none;
+      }
+      .row{
+         background: #fff;
+         height: 0.1em;
+         width: 20px;
+         margin-top: 4px;
+         &:first-child{
+            margin: 0;
+         }
+      }
+   }
+
+   .header-menu{
+      transform: scaleY(0);
+      transform-origin: top;
+      position: absolute;
+      left: 0;
+      right: 0;
+      @extend %transitions;
+
+      @include respond-to(desktop){
+         transform: scaleY(1);
+      }
+      .menu{
+         margin: 0;
+         padding: 0;
+         position: relative;
+
+         @include respond-to(pads){
+           display: flex;
+         }
+
+         li{
+            display: flex;
+            flex: 1 1 100%;
+            justify-content: center;
+            background: color(background);
+            transition: background .2s ease;
+            position: relative;
+
+            &.has-sub{
+              a{
+                position: relative;
+              }
+            }
+
+            @include respond-to(pads){
+              position: static;
+            }
+
+            @include respond-to(desktop){
+              &:hover{
+                > a{
+                  background: lighten(color(background), 20%);
+                  color: color(primary, light);
+                }
+              }
+            }
+
+            a{
+               flex: 1 1 100%;
+               text-align: center;
+               padding: 10px 0;
+               color: #fff;
+               text-decoration: none;
+               font-weight: 700;
+               @extend %transitions;
+
+               &:hover{
+                  background: lighten(color(background), 20%);
+                  color: color(primary, light);
+               }
+
+
+            }
+            label{
+              flex: 1 1 100%;
+              text-align: center;
+              padding: 10px 0;
+              color: #fff;
+              text-decoration: none;
+              font-weight: 700;
+              @extend %transitions;
+              position: relative;
+              cursor: pointer;
+
+              &:hover{
+                 background: lighten(color(background), 20%);
+                 color: color(primary, light);
+              }
+               span{
+                  transition: all .3s ease;
+                  font-size: 12px;
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  transform-origin: center;
+                  transform: rotateX(180deg);
+                  cursor: pointer;
+                  padding: 12px 15px;
+                  color: color(text);
+                  &:hover{
+                     color: #000;
+                  }
+               }
+            }
+          .mega{
+            transform: scaleY(0);
+            transform-origin: top;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: color(background);
+            border-top: 2px solid color(primary, dark);
+            z-index: 100;
+            height: 250px;
+            overflow: auto;
+
+            @extend %transitions;
+            @include respond-to(pads){
+              display: flex;
+              height: auto;
+            }
+            ul{
+              margin: auto 5px;
+              padding: 0;
+              flex: 1;
+
+              @include respond-to(pads){
+                flex: 1;
+              }
+
+              form{
+                display: flex;
+                flex-flow: row wrap;
+
+                input{
+                  display: block;
+                  flex: 1 1 100%;
+                  margin: 1%;
+                  @extend %transitions;
+
+                  &[type="text"]{
+                    flex: 1;
+                  }
+                  &[type="submit"]{
+                     justify-content: center;
+
+                     &:hover{
+                        background: color(secondary, base);
+                        color: color(text);
+                     }
+                  }
+                }
+              }
+
+              li{
+                color: color(text);
+              }
+
+            }
+            h3{
+              color: color(text);
+            }
+          }
+
+         }
+      }
+   }
+}
