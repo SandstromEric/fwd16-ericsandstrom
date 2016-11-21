@@ -1,207 +1,135 @@
-nav{
-   display: block;
-   background: #222;
+/*
 
-   h2{
-      display: none;
-   }
+*/
+input#show-mega{
 
-   input{
-      display: none;
-   }
-
-   input:checked{
-      ~ .hamburger{
-
-      }
-      ~ .header-menu{
-         @extend %expand;
+   &:checked{
+      ~ label{
+         &:after{
+            transform: rotate(0deg) !important;
+         }
       }
       ~ .mega{
-         @extend %expand;
-      }
-      ~ label {
-        background: #555;
-        color: color(primary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
-        span{
-          transform: rotateX(0deg) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
-          color: color(secondary, base) !important; //using important just because i want to all checked porperties simplyfied, better nested properties are overwriting these otherwise.
-        }
+         display: flex !important;
       }
    }
+}
+input#show-menu{
 
-   .hamburger{
-      padding: 10px;
+   &:checked{
+      ~ .menu{
+         display: block !important;
+      }
+   }
+}
+#navigation{
+   display: flex;
+   align-items: center;
+   max-width: 700px;
+   margin: 0 auto;
+   position: relative;
 
-      @include respond-to(desktop){
+   > label{
+      display: flex;
+      flex: 1 1 100%;
+      margin: 0 10px;
+      &:after{
+         @extend %hamburger;
+         font-size: 24px;
+         position: absolute;
+         right: 10px;
+         top: 5px;
+      }
+      @include respond-to(breakpoint){
          display: none;
       }
-      .row{
-         background: #fff;
-         height: 0.1em;
-         width: 20px;
-         margin-top: 4px;
-         &:first-child{
-            margin: 0;
-         }
+      h2{
+         margin: 0;
       }
    }
-
-   .header-menu{
-      transform: scaleY(0);
-      transform-origin: top;
+   .menu{
+      flex: 1;
+      display: none;
       position: absolute;
+      top: 100%;
       left: 0;
       right: 0;
-      @extend %transitions;
+      background: color(brown) url('../images/binding-dark.png');
 
-      @include respond-to(desktop){
-         transform: scaleY(1);
+      @include respond-to(breakpoint){
+         display: block;
+         position: relative;
       }
-      .menu{
+      > ul{
+         display: flex;
          margin: 0;
          padding: 0;
-         position: relative;
-
-         @include respond-to(pads){
-           display: flex;
-         }
 
          li{
             display: flex;
-            flex: 1 1 100%;
+            flex: 1;
+            padding: 5px 0;
+            color: color(white);
             justify-content: center;
-            background: color(background);
-            transition: background .2s ease;
-            position: relative;
-
-            &.has-sub{
-              a{
-                position: relative;
-              }
-            }
-
-            @include respond-to(pads){
-              position: static;
-            }
-
-            @include respond-to(desktop){
-              &:hover{
-                > a{
-                  background: lighten(color(background), 20%);
-                  color: color(primary, light);
-                }
-              }
-            }
-
-            a{
-               flex: 1 1 100%;
-               text-align: center;
-               padding: 10px 0;
-               color: #fff;
-               text-decoration: none;
-               font-weight: 700;
-               @extend %transitions;
-
-               &:hover{
-                  background: lighten(color(background), 20%);
-                  color: color(primary, light);
-               }
-
-
-            }
+            @include linear-gradient(to right, magenta, red, orange, yellow, green, blue, purple);
             label{
-              flex: 1 1 100%;
-              text-align: center;
-              padding: 10px 0;
-              color: #fff;
-              text-decoration: none;
-              font-weight: 700;
-              @extend %transitions;
-              position: relative;
-              cursor: pointer;
+               display: flex;
+               flex: 1;
+               justify-content: center;
+               &:after{
+                  transform: rotate(180deg);
+                  content: " ^"
+               }
+            }
+            &:hover{
+               background: blue;
+            }
+            a{
+               display: flex;
+               flex: 1;
+               color: color(white);
+               text-decoration: none;
+               justify-content: center;
+            }
+            .mega{
+               display: none;
+               position: absolute;
+               top: 100%;
+               left: 0;
+               right: 0;
+               flex-flow: column nowrap;
+               background: blue;
+               padding: 20px;
+               height: 500px;
+               overflow: auto;
+               @include respond-to(breakpoint){
+                  flex-flow: row wrap;
+                  height: auto;
+               }
+               ul{
+                  flex: 0 0 25%;
+                  padding: 0;
 
-              &:hover{
-                 background: lighten(color(background), 20%);
-                 color: color(primary, light);
-              }
-               span{
-                  transition: all .3s ease;
-                  font-size: 12px;
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  transform-origin: center;
-                  transform: rotateX(180deg);
-                  cursor: pointer;
-                  padding: 12px 15px;
-                  color: color(text);
-                  &:hover{
+                  h2{
                      color: #000;
+                     margin: 5px 0;
                   }
                }
             }
-          .mega{
-            transform: scaleY(0);
-            transform-origin: top;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: color(background);
-            border-top: 2px solid color(primary, dark);
-            z-index: 100;
-            height: 250px;
-            overflow: auto;
+         }
+      }
+   }
+   .misc{
+      display: none;
+      padding: 0 10px;
+      @include respond-to(breakpoint){
+         display: flex;
+      }
+      div{
+         padding: 0 5px;
 
-            @extend %transitions;
-            @include respond-to(pads){
-              display: flex;
-              height: auto;
-            }
-            ul{
-              margin: auto 5px;
-              padding: 0;
-              flex: 1;
-
-              @include respond-to(pads){
-                flex: 1;
-              }
-
-              form{
-                display: flex;
-                flex-flow: row wrap;
-
-                input{
-                  display: block;
-                  flex: 1 1 100%;
-                  margin: 1%;
-                  @extend %transitions;
-
-                  &[type="text"]{
-                    flex: 1;
-                  }
-                  &[type="submit"]{
-                     justify-content: center;
-
-                     &:hover{
-                        background: color(secondary, base);
-                        color: color(text);
-                     }
-                  }
-                }
-              }
-
-              li{
-                color: color(text);
-              }
-
-            }
-            h3{
-              color: color(text);
-            }
-          }
-
+         i, span{
+            color: color(white);
          }
       }
    }

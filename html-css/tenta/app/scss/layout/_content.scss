@@ -1,62 +1,54 @@
-.flex-box-container{
+#main-container{
    flex: 1;
-   margin-top: 90px;
+   margin-top: 100px;
+   #main{
 
-   .flex-box{
-      display: flex;
-      flex-direction: column;
+      .flex-box.prices{
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+         @include respond-to(breakpoint){
+            flex-direction: row;
+         }
+         .flex-item{
 
-      @include respond-to(pads){
-         flex-flow: row wrap;
+            width: 200px;
+            height: 206px;
+            border: 1px solid red;
+            border-radius: 50%;
+            text-align: center;
+            margin: 10px auto;
+
+            @include respond-to(breakpoint){
+               margin: 10px;
+            }
+            &:nth-child(1){
+               background: url('../images/1price.png') no-repeat center center;
+            }
+            &:nth-child(2){
+               background: url('../images/2price.png') no-repeat center center;
+            }
+            &:nth-child(3){
+               background: url('../images/3price.png') no-repeat center center;
+            }
+         }
       }
+      .flex-box.content{
+         display: flex;
+         flex-flow: row wrap;
+         @include flex-card-3-and-4;
 
-      .flex-item{
-
-         @include flex-card;
-         @include specific-flex-card(1, 64.67%, 48%);
-         @include loop-flex-cards;
-
-         section{
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-
-            header{
-                  padding: 10px;
-                  background: color(background);
-               h2{
-                  color: #fff;
-                  margin: 0;
-
-               }
-            }
-            img{
-              max-width: 100%;
-              width: 100%;
-            }
-            article{
-               padding: 10px;
-               flex: 1;
-
-               h2{
-                  margin: 0;
-                  font-weight: 400;
-               }
-               p{
-
-               }
-            }
-            footer{
-              background: color(background);
-              color: color(text);
-              padding: 10px 20px;
-              text-align: right;
-
-              i{
-                padding: 0 5px;
+         .flex-item{
+            @include flex-card;
+            h2{
+              &:before{
+                 content: "- Kill this poacher - REWARD $ ";
               }
             }
          }
+      }
+      .flex-item{
+         @include loop-flex-colors;
       }
    }
 }

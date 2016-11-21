@@ -1,21 +1,24 @@
 ///General color map
 $colors: (
-   text: #fff,
-   background: #222,
-   primary: (
-      base: #FF5722,
-      light: lighten(#FF5722, 20%),
-      dark: darken(#FF5722, 20%),
-   ),
-   secondary: (
-      base: #B388FF,
-      light: lighten(#B388FF, 20%),
-      dark: darken(#B388FF, 20%),
-   )
+   brown: #916c55,
+   orange: darkorange,
+   white: white,
 );
 
 ///Breakpoints for the site
 $breakpoints: (
-  pads: 768px,
-  desktop: 1024px,
+   breakpoint: 32.188em,
+);
+
+///Colors for the flex-items
+$flex-colors: (
+   blue,
+   green,
+   lime,
+   gold,
+   pink,
+   purple,
+   cyan,
+   red,
+   orange,
 );

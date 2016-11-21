@@ -1,4 +1,4 @@
-///Simplifies the colorin
+///Simplifies the coloring
 @function color($key, $variant:null) {
    @if ($variant != null) {
       @return map-get(map-get($colors, $key), $variant);

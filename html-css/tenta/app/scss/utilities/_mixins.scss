@@ -7,34 +7,44 @@
   }
 }
 
-///Targets a specific flex-card with the 1st parameter and changes size through the 2nd and 3rd parameter ($i, $pads, $desktop)
-@mixin specific-flex-card($num, $size1, $size2){
-   &:nth-child(#{$num}){
-      @include respond-to(pads){
-         min-width: $size1;
-      }
-      @include respond-to(desktop){
-         min-width: $size2;
-      }
-   }
-}
-
-///Looping through all flex cards and adding an addition oppacity to every card
-@mixin loop-flex-cards{
-  @for $i from 1 through 8{
-    &:nth-child(#{$i}){
-       opacity: ($i * 10 / 100) + 0.2;
-    }
-  }
+///General rules for the sites background
+@mixin background-url($url) {
+   background: url($url) no-repeat center center;
+   background-attachment: fixed;
+   background-size: cover;
 }
 
 ///Rules for every flex-card on the site
 @mixin flex-card{
   @extend %flex-card;
-  @extend %flex-card-pads;
-  @extend %flex-card-desktop;
+  @extend %flex-card-breakpoint;
 }
 
-@mixin expand{
-  transform: scaleY(1) !important;
+///Targeting the flex cards from 3 to 4
+@mixin flex-card-3-and-4{
+   @extend %flex-card-3-and-4;
+}
+
+///Looping through the map $flex-colors and applying the colors to the selected element
+@mixin loop-flex-colors{
+   @for $i from 1 through length($flex-colors){
+      &:nth-child(#{$i}){
+         background-color: nth($flex-colors, $i);
+      }
+   }
+}
+
+///Makes a gradient color on the targeted element. $gradients can take unlimited arguments
+@mixin linear-gradient($direction, $gradients...) {
+  background-color: nth($gradients, 1);
+  background-image: linear-gradient($direction, $gradients);
+}
+
+///Changes the class name from col-1 through col-4 and every increment of col adds a 25% width
+@mixin for-loop($end){
+   @for $i from 1 through $end{
+      .col-#{$i}{
+         width: 25% * $i;
+      }
+   }
 }
