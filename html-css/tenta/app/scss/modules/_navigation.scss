@@ -64,6 +64,11 @@ input#show-menu{
          display: flex;
          margin: 0;
          padding: 0;
+         flex-direction: column;
+
+         @include respond-to(breakpoint){
+            flex-direction: row;
+         }
 
          li{
             display: flex;
