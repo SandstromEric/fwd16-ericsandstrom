@@ -1,26 +1,32 @@
 'use strict';
 
+//Global Variables
 var restart = false;
 var board = [];
 var playerOne = 1; //X
 var playerTwo = 2; //O
 
-//Messages
+//Start Messages
 var getMessageBox = document.getElementById("message");
+
+var warnGameStarted = {
+  msg: "The Game has begun! Good Luck!",
+  style: "green",
+}
 
 var warnBelowThree = {
   msg: "The Y or X is below 3",
-  //style: style.background = "red",
+  style: "red",
 };
 
 var warnOccupied = {
   msg: "That Cell is already occupied",
-  //style: style.background = "red",
+  style: "red",
 };
 
 var warnGameOver = {
   msg: "The Game is Over, Click Restart to play again!",
-  //style: style.background = "yellow",
+  style: "yellow",
 };
 
 var warnPlayer = {
@@ -30,60 +36,135 @@ var warnPlayer = {
   playerTwo: {
     msg: "Player Two's (O) Turn",
   },
-  //style: style.background = "green",
+  style: "green",
 };
-
+//End Messages
 
 //WHEN id="startBtn" is clicked
 function startGame() {
-    restartGame();
-    checkBoardSize();
+    initGame();
 }
 
 //USED BY startGame();
-function restartGame(){
-    if(restart == true){
+function initGame() {
+  var xSize = document.getElementById("numX").value;
+  var ySize = document.getElementById("numY").value;
+  var startBtn = document.getElementById("startBtn");
 
-        //Removes table
+  if (xSize < 3 || ySize < 3) {
+
+      getMessageBox.innerHTML = warnBelowThree.msg;
+      getMessageBox.style.background = warnBelowThree.style;
+
+      if(restart == true){
+
+        getMessageBox.innerHTML = warnBelowThree.msg;
+        getMessageBox.style.background = warnBelowThree.style;
+
+        //Removes board
         board = [];
         var getTable = document.getElementById("table");
         getTable.parentNode.removeChild(getTable);
-        getMessageBox.innerHTML = "";
+        startBtn.innerHTML = "Start";
+        restart = false;
+      }
 
-    } else {
+  } else {
 
-      var startBtn = document.getElementById("startBtn");
-      startBtn.innerHTML = "Restart";
+    if(restart == true){
 
-    }
+        //Removes board
+        board = [];
+        var getTable = document.getElementById("table");
+        getTable.parentNode.removeChild(getTable);
 
-}
+        getMessageBox.innerHTML = warnGameStarted.msg;
+        getMessageBox.style.background = warnGameStarted.style;
 
-//USED BY startGame();
-function checkBoardSize(){
-
-    var xSize = document.getElementById("numX").value;
-    var ySize = document.getElementById("numY").value;
-
-    if (xSize < 3 || ySize < 3) {
-
-        getMessageBox.innerHTML = warnBelowThree.msg;
-        //getMessageBox.style.background = belowThree[1];
-
-    } else {
-
+        //Inits the mechanics
         buildBoard();
         squareBoard();
         initPlayerTurns();
 
-        if(restart == false){
-            restart = true;
+    } else {
+
+      startBtn.innerHTML = "Restart";
+
+      getMessageBox.innerHTML = warnGameStarted.msg;
+      getMessageBox.style.background = warnGameStarted.style;
+
+      //Inits the mechanics
+      buildBoard();
+      squareBoard();
+      initPlayerTurns();
+
+      if(restart == false){
+          restart = true;
+      }
+
+    }
+
+  }
+
+}
+
+//USED BY initGame();
+function buildBoard() {
+
+    var xSize = document.getElementById("numX").value;
+    var ySize = document.getElementById("numY").value;
+
+    var boardEl = document.getElementById('board');
+    var table = document.createElement("TABLE");
+    table.id = "table";
+    var createTable = boardEl.appendChild(table);
+
+    //Creates a 2d array representing the board
+    for (var i = 0; i < xSize; i++) {
+
+        board.push([]);
+        var row = document.createElement("TR");
+
+        for(var j = 0; j < ySize; j++){
+
+            board[i].push(0);
+            var cell = document.createElement("TD");
+            cell.setAttribute("data-x", i);
+            cell.setAttribute("data-y", j);
+            row.appendChild(cell);
+
+        }
+        table.appendChild(row);
+    }
+    console.log(board);
+
+    createTable;
+}
+
+//USED BY initGame();
+function squareBoard() {
+
+    var xSize = document.getElementById("numX").value;
+    var ySize = document.getElementById("numY").value;
+
+    //RESIZE HEIGHT TO OFF TD TO MAKE IT A SQUARE AT ALL TIMES
+    var tdWidth = document.getElementsByTagName("td")[0].offsetWidth;
+    for(var i = 0; i < xSize * ySize; i++){
+        var setTdHeight = document.getElementsByTagName("td")[i];
+        setTdHeight.style.height = tdWidth + "px";
+    }
+
+    window.onresize = function(event) {
+        var tdWidth = document.getElementsByTagName("td")[0].offsetWidth;
+        for(var i = 0; i < xSize * ySize; i++){
+            var setTdHeight = document.getElementsByTagName("td")[i];
+            setTdHeight.style.height = tdWidth + "px";
         }
     }
 }
 
-//USED BY checkBoardSize();
-function initPlayerTurns(){
+//USED BY initGame();
+function initPlayerTurns() {
   var cell = document.getElementsByTagName("td");
   var xSize = document.getElementById("numX").value;
   var ySize = document.getElementById("numY").value;
@@ -96,7 +177,6 @@ function initPlayerTurns(){
     var cellX = cell[i].getAttribute("data-x");
     var cellY = cell[i].getAttribute("data-y");
 
-    console.log(cellX)
     //When a cell is clicked
     cell[i].onclick = function() {
 
@@ -104,10 +184,14 @@ function initPlayerTurns(){
       var o = "circle";
 
       if(checkBoardFull() == true){
+
         getMessageBox.innerHTML = warnGameOver.msg;
+        getMessageBox.style.background = warnGameOver.style;
+
       } else if(board[cellX][cellY] >= 1) {
 
         getMessageBox.innerHTML = warnOccupied.msg + " [Cell("+cellX+","+cellY+")]";
+        getMessageBox.style.background = warnOccupied.style;
 
       } else {
 
@@ -131,8 +215,10 @@ function initPlayerTurns(){
 
           if(checkBoardFull() == true) {
             getMessageBox.innerHTML = warnGameOver.msg;
+            getMessageBox.style.background = warnGameOver.style;
           }else{
             getMessageBox.innerHTML = warnPlayer.playerTwo.msg;
+            getMessageBox.style.background = warnPlayer.style;
           }
 
         } else if( turnPlayerTwo == true) {
@@ -144,8 +230,10 @@ function initPlayerTurns(){
 
           if(checkBoardFull() == true) {
             getMessageBox.innerHTML = warnGameOver.msg;
+            getMessageBox.style.background = warnGameOver.style;
           }else{
             getMessageBox.innerHTML = warnPlayer.playerOne.msg;
+            getMessageBox.style.background = warnPlayer.style;
           }
         }
 
@@ -156,61 +244,8 @@ function initPlayerTurns(){
   })(i);
 }
 
-//USED BY checkBoardSize();
-function buildBoard(){
-
-    var xSize = document.getElementById("numX").value;
-    var ySize = document.getElementById("numY").value;
-
-    var boardEl = document.getElementById('board');
-    var table = document.createElement("TABLE");
-    table.id = "table";
-    var createTable = boardEl.appendChild(table);
-
-    //Creates a 2d array representing the board
-    for (var i = 0; i < xSize; i++) {
-
-        board.push([]);
-        var row = document.createElement("TR");
-
-        for(var j = 0; j < ySize; j++){
-            board[i].push(0);
-            var cell = document.createElement("TD");
-            cell.setAttribute("data-x", i);
-            cell.setAttribute("data-y", j);
-            row.appendChild(cell);
-        }
-        table.appendChild(row);
-    }
-    console.log(board);
-
-    createTable;
-}
-
-//USED BY checkBoardSize();
-function squareBoard(){
-
-    var xSize = document.getElementById("numX").value;
-    var ySize = document.getElementById("numY").value;
-
-    //RESIZE HEIGHT TO OFF TD TO MAKE IT A SQUARE AT ALL TIMES
-    var tdWidth = document.getElementsByTagName("td")[0].offsetWidth;
-    for(var i = 0; i < xSize * ySize; i++){
-        var setTdHeight = document.getElementsByTagName("td")[i];
-        setTdHeight.style.height = tdWidth + "px";
-    }
-
-    window.onresize = function(event) {
-        var tdWidth = document.getElementsByTagName("td")[0].offsetWidth;
-        for(var i = 0; i < xSize * ySize; i++){
-            var setTdHeight = document.getElementsByTagName("td")[i];
-            setTdHeight.style.height = tdWidth + "px";
-        }
-    }
-}
-
 //USED By initPlayerTurns();
-function checkBoardFull(){
+function checkBoardFull() {
   var xSize = document.getElementById("numX").value;
   var ySize = document.getElementById("numY").value;
   var boardSpace = 1;
@@ -227,7 +262,8 @@ function checkBoardFull(){
   }
 }
 
-function checkWin(){
+//NOT DONE YET!
+function checkWin() {
   var cell = document.getElementsByTagName("td");
   var xSize = document.getElementById("numX").value;
   var ySize = document.getElementById("numY").value;
