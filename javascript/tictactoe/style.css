@@ -1,0 +1,113 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    position: relative;
+    font-family: sans-serif;
+}
+
+header{
+    background: #009688;
+    display: flex;
+}
+
+h1, h2{
+  margin: 10px;
+}
+#boardContainer{
+  background: #009688;
+}
+#board{
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#board h2{
+  margin: 10px 0;
+}
+
+#board table{
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#board td{
+    max-width: 174px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    background-color: #fff;
+    text-align: center;
+    font-size: 3em;
+}
+
+#board div{
+    text-align: center;
+    font-size: 60px;
+}
+
+#board img{
+  max-width: 150px;
+  width: 100%;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
+  vertical-align: middle;
+}
+
+/*Settings*/
+.settings{
+    display: flex;
+    flex-flow: row wrap;
+    background: #000;
+}
+.settings h2{
+    flex: 1 1 100%;
+    color: #fff;
+    padding: 0 10px;
+}
+.size{
+    display: flex;
+    flex: 1;
+}
+.size input[type="number"]{
+    flex: 1 1 33%;
+    box-sizing: border-box;
+    font-size: 30px;
+    text-align: center;
+    border: 2px solid #21aae0;
+    padding: 10px 0;
+    width: 100%;
+}
+.size span{
+    flex: 1 1 33%;
+    background: #21aae0;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+.settings button{
+    flex: 1 1 100%;
+    border: 0;
+    background: #aaa;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.circle{
+  background: url("images/circle_alpha.png") no-repeat center center;
+}
+.cross{
+  background: url("images/cross_alpha.png") no-repeat center center;
+}
+
+@media screen and (max-width: 760px){
+    .size{
+        flex-flow: column;
+    }
+}

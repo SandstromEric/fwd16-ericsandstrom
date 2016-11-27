@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="style.css" type="text/css" rel="stylesheet"></link>
+  </head>
+  <body>
+
+      <header>
+        <h1>Tic Tac Toe</h1>
+      </header>
+
+      <div class="settings">
+
+          <h2>Settings</h2>
+
+          <div class="size">
+              <input id="numX" type="number" value="3" min="3"/>
+              <span>X</span>
+              <input id="numY" type="number" value="3" min="3"/>
+          </div>
+
+          <button id="startBtn" onclick="startGame()">Start</button>
+
+      </div>
+      
+      <div id="boardContainer">
+
+        <div id="board">
+          <h2>BOARD</h1>
+          <h3>Message: <span id="message"></span></h3>
+          <!-- Board is Created Here! -->
+        </div>
+
+      </div>
+
+      <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
