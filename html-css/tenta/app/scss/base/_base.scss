@@ -1,37 +1,36 @@
 @import "base/normalize";
 @import "base/typography";
-@import "../modules/scrollbar";
 
 html, body{
    font-family: 'Open Sans Condensed', sans-serif;
    height: 100%;
 }
+
 body{
+   box-sizing: border-box;
+   @include background-url('../images/South-Africa-Safari.jpg');
+}
+
+nav input[type="checkbox"]{
+   display: none;
+}
+
+#site-wrapper{
    display: flex;
    flex-direction: column;
+   height: 100%;
 }
 
-ul{
-   margin: 0;
-}
+#landing{
+   display: flex;
+   flex: 0 0 50%;
+   height: 100%;
+   @include background-url('../images/South-Africa-Safari.jpg');
 
-li{
-}
-
-a{
-   color: color(secondary, base);
-   text-decoration: none;
-
-   &:hover{
-      color: color(secondary, dark);
-   }
-}
-input{
-   border-radius: 2px;
-   border: none;
-   padding: 5px;
-
-   &:focus{
-      outline-color: color(secondary, base);
+   div{
+      background: brown;
+      align-self: center;
+      text-align: center;
+      margin: 0 auto;
    }
 }

@@ -1,35 +1,55 @@
-.header-container{
+#header-container{
    position: fixed;
-   right: 0;
    left: 0;
+   right: 0;
    top: 0;
-   z-index: 100;
+   background: color(brown) url('../images/binding-dark.png');
+   box-shadow: 0 5px 5px #000;
 
    header{
       display: flex;
-      background: color(primary, base);
-      padding: 5px 0;
-      @include respond-to(pads){
-         padding: 10px 0;
-      }
+      justify-content: center;
 
       > div{
-         display: flex;
-         align-self: center;
-         padding: 0 10px;
+         padding: 0 5px;
       }
-      .logo{
-         flex: 2;
+      .social{
+         display: flex;
+         align-items: flex-end;
 
-         @include respond-to(pads){
-            flex: 3;
+         div{
+            margin: 2px;
+
+            i{
+               color: rgba(0,0,0,0.6);
+               text-shadow: 1px 4px 6px color(brown), 0 0 0 #000, 1px 4px 6px color(brown);
+               font-size: 24px;
+            }
          }
-         h1{
+      }
+      .title{
+         display: flex;
+         align-items: flex-end;
+         
+         h1, h2{
             font-size: 20px;
             margin: 0;
+            padding: 0 2px;
+            align-items: baseline;
+            color: rgba(0,0,0,0.6);
+            text-shadow: 1px 4px 6px color(brown), 0 0 0 #000, 1px 4px 6px color(brown);
+         }
+      }
+      .logo{
+         h2{
+            margin: 0;
+         }
+         img{
+            width: 64px;
          }
       }
    }
+
    //NAVIGATION
    @import "../modules/navigation";
 }

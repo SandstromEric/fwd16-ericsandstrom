@@ -1,36 +1,49 @@
-///The standard transition for the websit
-%transitions{
-   transition: all .3s ease;
-}
-
-///Expanding element to full scale
-%expand{
-  transform: scaleY(1) !important;
+///Hamburger-icon
+%hamburger{
+   content: "\f0c9";
+   font-family: FontAwesome;
 }
 
 ///Basic Flex-card rules
 %flex-card{
-  display: flex;
-  flex-direction: column;
-  border-top: 3px solid color(secondary, dark);
-  border-bottom: 3px solid color(secondary, dark);
-  border-radius: 2px;
-  background: color(primary, base);
-  color: color(text);
-  flex: 1;
-  margin: 1%;
+   display: flex;
+   @include respond-to(breakpoint){
+      flex: 0 1 33.33%;
+   }
+   section{
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      h2,h3{
+         color: red;
+      }
+      img{
+         max-width: 100%;
+      }
+      p{
+         flex: 1;
+         background: color(orange);
+         margin: 0;
+      }
+   }
 }
 
 ///Rules for flex-cards on pads
-%flex-card-pads{
-  @include respond-to(pads){
-    min-width: 31.33%;
+%flex-card-breakpoint{
+  @include respond-to(breakpoint){
+    &:nth-child(even){
+      flex: 0 1 66.66%;
+    }
   }
 }
 
-///Rules for flex-cards on desktop
-%flex-card-desktop{
-  @include respond-to(desktop){
-    min-width: 23%;
-  }
+///Rules for the flexcards 3 through 4
+%flex-card-3-and-4{
+   .flex-item{
+      &:nth-child(n+3):nth-child(-n+4){
+         border: 2px solid #ec4970;
+         border-radius: 10px;
+         box-sizing: border-box;
+      }
+   }
 }

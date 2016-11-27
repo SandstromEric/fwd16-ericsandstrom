@@ -1,4 +1,6 @@
-///Breakpoints
+/// Makes calling breakpoints easier
+/// @param {width value} $breakpoint - Retrieve breakpoint value
+/// @param {width value} $breakpoints - Select map to retrieve value from
 @mixin respond-to($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
@@ -7,34 +9,48 @@
   }
 }
 
-///Targets a specific flex-card with the 1st parameter and changes size through the 2nd and 3rd parameter ($i, $pads, $desktop)
-@mixin specific-flex-card($num, $size1, $size2){
-   &:nth-child(#{$num}){
-      @include respond-to(pads){
-         min-width: $size1;
-      }
-      @include respond-to(desktop){
-         min-width: $size2;
+/// General rules for the sites background
+/// @param {width value} $url - search path for the image
+@mixin background-url($url) {
+   background: url($url) no-repeat center center;
+   background-attachment: fixed;
+   background-size: cover;
+}
+
+/// Rules for every flex-card on the site
+@mixin flex-card{
+  @extend %flex-card;
+  @extend %flex-card-breakpoint;
+}
+
+/// Targeting the flex cards from 3 to 4
+@mixin flex-card-3-and-4{
+   @extend %flex-card-3-and-4;
+}
+
+/// Looping through the map $flex-colors and applying the colors to the selected element
+@mixin loop-flex-colors{
+   @for $i from 1 through length($flex-colors){
+      &:nth-child(#{$i}){
+         background-color: nth($flex-colors, $i);
       }
    }
 }
 
-///Looping through all flex cards and adding an addition oppacity to every card
-@mixin loop-flex-cards{
-  @for $i from 1 through 8{
-    &:nth-child(#{$i}){
-       opacity: ($i * 10 / 100) + 0.2;
-    }
-  }
+/// Makes a gradient color on the targeted element. $gradients can take unlimited arguments
+/// @param {width value} $direction - which direction the gradient will go
+/// @param {width value} $gradients... - unlimted arguments
+@mixin linear-gradient($direction, $gradients...) {
+  background-color: nth($gradients, 1);
+  background-image: linear-gradient($direction, $gradients);
 }
 
-///Rules for every flex-card on the site
-@mixin flex-card{
-  @extend %flex-card;
-  @extend %flex-card-pads;
-  @extend %flex-card-desktop;
-}
-
-@mixin expand{
-  transform: scaleY(1) !important;
+/// Changes the class name from col-1 through col-4 and every increment of col adds a 25% width
+/// @param {width value} $end- how many times it will loop
+@mixin each-loop($end){
+   @for $i from 1 through $end{
+      .col-#{$i}{
+         width: 25% * $i;
+      }
+   }
 }
