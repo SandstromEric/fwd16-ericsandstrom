@@ -101,9 +101,11 @@ h1, h2{
 
 .circle{
   background: url("images/circle_alpha.png") no-repeat center center;
+  background-size: cover;
 }
 .cross{
   background: url("images/cross_alpha.png") no-repeat center center;
+  background-size: cover;
 }
 
 @media screen and (max-width: 760px){

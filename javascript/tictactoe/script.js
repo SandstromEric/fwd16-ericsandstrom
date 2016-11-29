@@ -1,5 +1,3 @@
-'use strict';
-
 //Global Variables
 var restart = false;
 var board = [];
@@ -11,47 +9,50 @@ var getMessageBox = document.getElementById("message");
 
 var warnGameStarted = {
   msg: "The Game has begun! Good Luck!",
-  style: "green",
-}
+  style: "green"
+};
 
 var warnBelowThree = {
-  msg: "The Y or X is below 3",
-  style: "red",
+  msg: "The Y or X is below 3 or above 20",
+  style: "red"
 };
 
 var warnOccupied = {
   msg: "That Cell is already occupied",
-  style: "red",
+  style: "red"
 };
 
 var warnGameOver = {
   msg: "The Game is Over, Click Restart to play again!",
-  style: "yellow",
+  style: "yellow"
 };
 
 var warnPlayer = {
   playerOne: {
-    msg: "Player One's (X) Turn",
+    msg: "Player One's (X) Turn"
   },
   playerTwo: {
-    msg: "Player Two's (O) Turn",
+    msg: "Player Two's (O) Turn"
   },
-  style: "green",
+  style: "green"
 };
 //End Messages
 
 //WHEN id="startBtn" is clicked
 function startGame() {
+    'use strict';
     initGame();
 }
 
 //USED BY startGame();
 function initGame() {
+  'use strict';
   var xSize = document.getElementById("numX").value;
   var ySize = document.getElementById("numY").value;
   var startBtn = document.getElementById("startBtn");
+  var getTable = document.getElementById("table");
 
-  if (xSize < 3 || ySize < 3) {
+  if (xSize < 3 || ySize < 3 || xSize > 20 || ySize > 20) {
 
       getMessageBox.innerHTML = warnBelowThree.msg;
       getMessageBox.style.background = warnBelowThree.style;
@@ -63,7 +64,6 @@ function initGame() {
 
         //Removes board
         board = [];
-        var getTable = document.getElementById("table");
         getTable.parentNode.removeChild(getTable);
         startBtn.innerHTML = "Start";
         restart = false;
@@ -75,7 +75,6 @@ function initGame() {
 
         //Removes board
         board = [];
-        var getTable = document.getElementById("table");
         getTable.parentNode.removeChild(getTable);
 
         getMessageBox.innerHTML = warnGameStarted.msg;
@@ -110,7 +109,7 @@ function initGame() {
 
 //USED BY initGame();
 function buildBoard() {
-
+    'use strict';
     var xSize = document.getElementById("numX").value;
     var ySize = document.getElementById("numY").value;
 
@@ -176,6 +175,8 @@ function initPlayerTurns() {
 
     var cellX = cell[i].getAttribute("data-x");
     var cellY = cell[i].getAttribute("data-y");
+    cellX = Number(cellX);
+    cellY = Number(cellY);
 
     //When a cell is clicked
     cell[i].onclick = function() {
@@ -190,6 +191,8 @@ function initPlayerTurns() {
 
       } else if(board[cellX][cellY] >= 1) {
 
+        cellX = cellX + 1;
+        cellY = cellY + 1;    
         getMessageBox.innerHTML = warnOccupied.msg + " [Cell("+cellX+","+cellY+")]";
         getMessageBox.style.background = warnOccupied.style;
 
@@ -202,16 +205,16 @@ function initPlayerTurns() {
           turnPlayerTwo = true;
           this.className = x;
 
-          /*
-          STILL IN DEVELOPMENT
 
+          //STILL IN DEVELOPMENT
+          /*
           var currentCell = board[cellIndex[0]][cellIndex[1]];
           var nextCell = board[cellIndex[0]][cellIndex[1] + 1];
           var prevCell = board[cellIndex[0]][cellIndex[1] - 2];
           console.log(currentCell, nextCell, prevCell);
           if(currentCell == 1 && nextCell == 1 && prevCell == 1){
             console.log("Player 1 Wins!");
-          }*/
+          }
 
           if(checkBoardFull() == true) {
             getMessageBox.innerHTML = warnGameOver.msg;
@@ -220,7 +223,7 @@ function initPlayerTurns() {
             getMessageBox.innerHTML = warnPlayer.playerTwo.msg;
             getMessageBox.style.background = warnPlayer.style;
           }
-
+          */
         } else if( turnPlayerTwo == true) {
 
           board[cellX][cellY] = playerTwo;
