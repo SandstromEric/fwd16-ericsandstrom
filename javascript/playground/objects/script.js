@@ -62,13 +62,13 @@ function questionFour() {
             phone: "789"
         }
     };
-    var prop, i, j;
+    var i, j;
     var objSize = 0;
     var objProp = [];
-    for (prop in persons) {
+    Object.keys(persons).forEach(function (prop) {
         objSize = objSize + 1;
         objProp.push(prop);
-    }
+    });
     for (i = 0; i < objSize; i = i + 1) {
         contact.push(persons[objProp[i]]);
     }
@@ -78,6 +78,22 @@ function questionFour() {
         console.log("Name: " + contact[j].name);
         console.log("Address: " + contact[j].address);
         console.log("Phone: " + contact[j].phone);
+    }
+}
+
+//Question 5;
+function questionFive() {
+    'use strict';
+    var addProp;
+    var cart = {};
+    while (true) {
+        addProp = prompt('Add a product. Seperate the name and price with a ","');
+        if (addProp === null) {
+            break;
+        }
+        addProp = addProp.split(",");
+        cart[addProp[0]] = addProp[1];
+        console.log(cart);
     }
 }
 
@@ -99,4 +115,7 @@ console.log("");
 
 console.log("Question 4");
 questionFour();
+
+console.log("Question 5");
+questionFive();
 
